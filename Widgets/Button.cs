@@ -32,6 +32,10 @@ namespace jquery.mobile.mvc.Widgets
 			Link
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Button"/> class.
+		/// </summary>
+		/// <param name="type"><see cref="Button"/> type.</param>
 		public Button(ButtonType type = ButtonType.Button)
 			: base(GetButtonType(type))
 		{
