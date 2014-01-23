@@ -25,12 +25,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("jquery.mobile")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("jquery.mobile.mvc")]
+[assembly: AssemblyDescription("Fluent implementation of ASP.NET-MVC HTML helpers for jQuery Mobile")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("jquery.mobile")]
-[assembly: AssemblyCopyright("Copyright ©  2014")]
+[assembly: AssemblyProduct("jquery.mobile.mvc")]
+[assembly: AssemblyCopyright("Copyright © Darren Horrocks 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
