@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Builders\ButtonBuilder.cs" />
     <Compile Include="Builders\ContentBuilder.cs" />
+    <Compile Include="Builders\ControlGroupBuilder.cs" />
     <Compile Include="Builders\FormBuilder.cs" />
     <Compile Include="Builders\PageBuilder.cs" />
     <Compile Include="Abstract\Builder.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Widgets\Button.cs" />
     <Compile Include="Widgets\Content.cs" />
+    <Compile Include="Widgets\ControlGroup.cs" />
     <Compile Include="Widgets\Form.cs" />
     <Compile Include="Widgets\Page.cs" />
   </ItemGroup>

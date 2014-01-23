@@ -28,7 +28,7 @@ namespace jquery.mobile.mvc.Abstract
 	public abstract class Element
 	{
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public IDictionary<String, Object> htmlAttributes;
+		protected IDictionary<String, Object> htmlAttributes;
 		protected String tag;
 		protected String classToEnsure;
 

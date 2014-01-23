@@ -18,20 +18,22 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
 */
-using jquery.mobile.mvc.Widgets;
+using jquery.mobile.mvc.Core;
 
-namespace jquery.mobile.mvc.Core
+namespace jquery.mobile.mvc.Widgets
 {
-	public partial class jQueryMobile<TModel>
-    {
-		public Button Button(Button.ButtonType type = Widgets.Button.ButtonType.Button)
+	public class DatePicker : Widget<DatePicker>
+	{
+		public DatePicker() 
+			: base("input")
 		{
-			return new Button(type);
+			EnforceHtmlAttribute("type", "text");
+			Role("date");
 		}
 
-		public DatePicker DatePicker()
+		public DatePicker Inline()
 		{
-			return new DatePicker();
+			return Data("inline", "true");
 		}
-    }
+	}
 }

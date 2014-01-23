@@ -26,6 +26,7 @@ namespace jquery.mobile.mvc.Core
 {
 	public partial class jQueryMobile<TModel>
 	{
+		/*BEGIN PAGE*/
 		public PageBuilder<TModel> Begin(Page page)
 		{
 			return new PageBuilder<TModel>(Html, page);
@@ -35,7 +36,9 @@ namespace jquery.mobile.mvc.Core
 		{
 			return new PageBuilder<TModel>(Html, new Page(id));
 		}
+		/*END PAGE*/
 
+		/*BEGIN FORM*/
 		public FormBuilder<TModel> Begin(Form form)
 		{
 			return new FormBuilder<TModel>(Html, form);
@@ -45,7 +48,9 @@ namespace jquery.mobile.mvc.Core
 		{
 			return new FormBuilder<TModel>(Html, new Form());
 		}
+		/*END FORM*/
 
+		/*BEGIN BUTTON*/
 		public ButtonBuilder<TModel> Begin(Button button)
 		{
 			return new ButtonBuilder<TModel>(Html, button);
@@ -55,5 +60,11 @@ namespace jquery.mobile.mvc.Core
 		{
 			return new ButtonBuilder<TModel>(Html, new Button());
 		}
+
+		public ButtonBuilder<TModel> BeginButton(Button.ButtonType type)
+		{
+			return new ButtonBuilder<TModel>(Html, new Button(type));
+		}
+		/*END BUTTON*/
 	}
 }
