@@ -28,21 +28,21 @@ namespace jquery.mobile.mvc.Abstract
 	public abstract class Element
 	{
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		protected IDictionary<String, Object> htmlAttributes;
-		protected String tag;
-		protected String classToEnsure;
+		protected IDictionary<String, Object> HtmlAttributes;
+		protected String Tag;
+		protected String ClassToEnsure;
 
-		internal Element(String _tag)
+		internal Element(String tag)
         {
-            htmlAttributes = new Dictionary<String, Object>();
-            tag = _tag;
+            HtmlAttributes = new Dictionary<String, Object>();
+            Tag = tag;
         }
 
 		internal String EndTag
 		{
 			get
 			{
-				return String.IsNullOrEmpty(tag) ? String.Empty : String.Format("</{0}>", tag);
+				return String.IsNullOrEmpty(Tag) ? String.Empty : String.Format("</{0}>", Tag);
 			}
 		}
 
@@ -50,10 +50,10 @@ namespace jquery.mobile.mvc.Abstract
 		{
 			get
 			{
-				if (String.IsNullOrEmpty(tag)) return String.Empty;
+				if (String.IsNullOrEmpty(Tag)) return String.Empty;
 
-				TagBuilder builder = new TagBuilder(tag);
-				builder.MergeAttributes(htmlAttributes);
+				TagBuilder builder = new TagBuilder(Tag);
+				builder.MergeAttributes(HtmlAttributes);
 
 				return builder.ToString(TagRenderMode.StartTag);
 			}
@@ -61,36 +61,36 @@ namespace jquery.mobile.mvc.Abstract
 
 		protected void MergeHtmlAttribute(String key, String value)
 		{
-			if (htmlAttributes != null)
+			if (HtmlAttributes != null)
 			{
-				if (htmlAttributes.ContainsKey(key))
+				if (HtmlAttributes.ContainsKey(key))
 				{
-					htmlAttributes[key] = value;
+					HtmlAttributes[key] = value;
 				}
 				else
 				{
-					htmlAttributes.Add(key, value);
+					HtmlAttributes.Add(key, value);
 				}
 			}
 			else
 			{
-				htmlAttributes = new Dictionary<String, Object>
+				HtmlAttributes = new Dictionary<String, Object>
 				{
 					{key, value}
 				};
 			}
 
-			if (!String.IsNullOrEmpty(classToEnsure)) EnforceClass(classToEnsure);
+			if (!String.IsNullOrEmpty(ClassToEnsure)) EnforceClass(ClassToEnsure);
 		}
 
 		protected void EnforceClass(String className)
 		{
-			if (htmlAttributes.ContainsKey("class"))
+			if (HtmlAttributes.ContainsKey("class"))
 			{
-				String currentValue = htmlAttributes["class"].ToString();
+				String currentValue = HtmlAttributes["class"].ToString();
 				if (!currentValue.Contains(className))
 				{
-					htmlAttributes["class"] += " " + className;
+					HtmlAttributes["class"] += " " + className;
 				}
 			}
 			else
@@ -101,39 +101,39 @@ namespace jquery.mobile.mvc.Abstract
 
 		protected void EnforceClassRemoval(String className)
 		{
-			if (!htmlAttributes.ContainsKey("class")) return;
+			if (!HtmlAttributes.ContainsKey("class")) return;
 
-			String currentValue = htmlAttributes["class"].ToString();
+			String currentValue = HtmlAttributes["class"].ToString();
 			if (currentValue.Contains(className))
 			{
-				htmlAttributes["class"] = currentValue.Replace(className, "").Replace("  ", "").Trim();
+				HtmlAttributes["class"] = currentValue.Replace(className, "").Replace("  ", "").Trim();
 			}
 		}
 
 		protected void EnforceHtmlAttribute(String key, String value, Boolean replaceExisting = true)
 		{
-			if (htmlAttributes.ContainsKey(key))
+			if (HtmlAttributes.ContainsKey(key))
 			{
 				if (replaceExisting)
 				{
-					htmlAttributes[key] = value;
+					HtmlAttributes[key] = value;
 				}
 				else
 				{
-					htmlAttributes[key] += " " + value;
+					HtmlAttributes[key] += " " + value;
 				}
 			}
 			else
 			{
-				htmlAttributes.Add(key, value);
+				HtmlAttributes.Add(key, value);
 			}
 		}
 
 		protected void EnforceHtmlAttributeRemoval(String key)
 		{
-			if (htmlAttributes.ContainsKey(key))
+			if (HtmlAttributes.ContainsKey(key))
 			{
-				htmlAttributes.Remove(key);
+				HtmlAttributes.Remove(key);
 			}
 		}
 	}

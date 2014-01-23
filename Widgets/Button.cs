@@ -29,6 +29,7 @@ namespace jquery.mobile.mvc.Widgets
 		{
 			Button,
 			Submit,
+			Reset,
 			Link
 		}
 
@@ -51,6 +52,11 @@ namespace jquery.mobile.mvc.Widgets
 			EnforceHtmlAttribute("href", href);
 
 			return this;
+		}
+
+		public Button Inline(bool inline)
+		{
+			return Data("inline", inline.ToString());
 		}
 
 		private static String GetButtonType(ButtonType type)

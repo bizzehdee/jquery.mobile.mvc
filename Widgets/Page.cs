@@ -19,6 +19,7 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
 */
 using System;
+using System.Collections.Generic;
 using jquery.mobile.mvc.Core;
 
 namespace jquery.mobile.mvc.Widgets
@@ -37,5 +38,18 @@ namespace jquery.mobile.mvc.Widgets
 			EnforceHtmlAttribute("id", id);
 			EnforceHtmlAttribute("data-role", "page");
 		}
+
+		public Page(String id, IDictionary<String, String> attributes)
+			: base("div")
+		{
+			foreach (KeyValuePair<string, string> attribute in attributes)
+			{
+				EnforceHtmlAttribute(attribute.Key, attribute.Value);
+			}
+
+			EnforceHtmlAttribute("id", id);
+			EnforceHtmlAttribute("data-role", "page");
+		}
+
 	}
 }

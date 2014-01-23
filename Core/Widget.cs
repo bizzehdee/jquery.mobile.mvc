@@ -28,8 +28,8 @@ namespace jquery.mobile.mvc.Core
 	{
 		private String _innerHtml;
 
-		public Widget(string _tag) 
-			: base(_tag)
+		public Widget(string tag) 
+			: base(tag)
 		{
 			_innerHtml = "";
 		}
@@ -55,6 +55,30 @@ namespace jquery.mobile.mvc.Core
 		public T Role(String role)
 		{
 			return Data("role", role);
+		}
+
+		public T Mini(bool mini)
+		{
+			return Data("mini", mini.ToString());
+		}
+
+		public T Native()
+		{
+			return Role("none");
+		}
+
+		public T Disable(bool disable)
+		{
+			if (disable)
+			{
+				EnforceHtmlAttribute("disabled", "disabled");
+			}
+			else
+			{
+				EnforceHtmlAttributeRemoval("disabled");
+			}
+
+			return (T)this;
 		}
 
 		public T AddClass(String className)

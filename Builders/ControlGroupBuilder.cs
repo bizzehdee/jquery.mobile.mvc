@@ -1,7 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿/*
+Copyright (c) 2014 Darren Horrocks
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
+*/
 using System.Web.Mvc;
 using jquery.mobile.mvc.Abstract;
 using jquery.mobile.mvc.Widgets;
@@ -10,21 +26,21 @@ namespace jquery.mobile.mvc.Builders
 {
 	public class ControlGroupBuilder<TModel> : Builder<TModel, ControlGroup>
 	{
-		public ControlGroupBuilder(HtmlHelper<TModel> _htmlHelper, ControlGroup _element) 
-			: base(_htmlHelper, _element)
+		public ControlGroupBuilder(HtmlHelper<TModel> htmlHelper, ControlGroup element) 
+			: base(htmlHelper, element)
 		{
 
 		}
 
 		public ControlGroupBuilder<TModel> Mini()
 		{
-			element.Mini();
+			Element.Mini();
 			return this;
 		}
 
 		public ControlGroupBuilder<TModel> Horizontal()
 		{
-			element.Horizontal();
+			Element.Horizontal();
 			return this;
 		}
 	}

@@ -18,7 +18,6 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
 */
-using System;
 using System.Web.Mvc;
 using jquery.mobile.mvc.Abstract;
 using jquery.mobile.mvc.Widgets;
@@ -35,7 +34,7 @@ namespace jquery.mobile.mvc.Builders
 
 		public ContentBuilder<TModel> Begin(Content.ContentType type)
 		{
-			return new ContentBuilder<TModel>(htmlHelper, new Content(type));
+			return new ContentBuilder<TModel>(HtmlHelper, new Content(type));
 		}
 
 		public ContentBuilder<TModel> BeginHeader()
@@ -51,12 +50,6 @@ namespace jquery.mobile.mvc.Builders
 		public ContentBuilder<TModel> BeginFooter()
 		{
 			return Begin(Content.ContentType.Footer);
-		}
-
-		public PageBuilder<TModel> Theme(String theme)
-		{
-
-			return this;
 		}
 	}
 }

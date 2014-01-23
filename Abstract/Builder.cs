@@ -28,43 +28,43 @@ namespace jquery.mobile.mvc.Abstract
 {
 	public abstract class Builder<TModel, T> : IDisposable where T : Widget<T>
 	{
-		protected readonly T element;
+		protected readonly T Element;
 
-		protected readonly TextWriter textWriter;
-		protected readonly HtmlHelper<TModel> htmlHelper;
-		protected readonly AjaxHelper<TModel> ajaxHelper;
+		protected readonly TextWriter TextWriter;
+		protected readonly HtmlHelper<TModel> HtmlHelper;
+		protected readonly AjaxHelper<TModel> AjaxHelper;
 
-		internal Builder(HtmlHelper<TModel> _htmlHelper, T _element)
+		internal Builder(HtmlHelper<TModel> htmlHelper, T element)
         {
-			if (_element == null)
+			if (element == null)
             {
-				throw new ArgumentNullException("_element");
+				throw new ArgumentNullException("element");
             }
 
-			element = _element;
-			htmlHelper = _htmlHelper;
-            textWriter = htmlHelper.ViewContext.Writer;
-			textWriter.WriteLine(element.StartTag);
+			Element = element;
+			HtmlHelper = htmlHelper;
+            TextWriter = HtmlHelper.ViewContext.Writer;
+			TextWriter.WriteLine(Element.StartTag);
         }
 
-		internal Builder(AjaxHelper<TModel> _ajaxHelper, T _element)
+		internal Builder(AjaxHelper<TModel> ajaxHelper, T element)
         {
-			if (_element == null)
+			if (element == null)
             {
-				throw new ArgumentNullException("_element");
+				throw new ArgumentNullException("element");
             }
 
-			element = _element;
-			ajaxHelper = _ajaxHelper;
-            textWriter = ajaxHelper.ViewContext.Writer;
-			textWriter.WriteLine(element.StartTag);
+			Element = element;
+			AjaxHelper = ajaxHelper;
+            TextWriter = AjaxHelper.ViewContext.Writer;
+			TextWriter.WriteLine(Element.StartTag);
         }
 
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		public virtual void Dispose()
 		{
-			textWriter.WriteLine(element.EndTag);
-			textWriter.WriteLine();
+			TextWriter.WriteLine(Element.EndTag);
+			TextWriter.WriteLine();
 		}
 	}
 }

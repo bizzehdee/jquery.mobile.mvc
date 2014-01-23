@@ -31,14 +31,14 @@ namespace jquery.mobile.mvc.Widgets
 			Footer
 		}
 
-		private ContentType type { get; set; }
+		private ContentType Type { get; set; }
 
 		public Content(ContentType contentType = ContentType.Content)
 			: base("div")
 		{
-			type = contentType;
+			Type = contentType;
 
-			switch (type)
+			switch (Type)
 			{
 				case ContentType.Header:
 					EnforceHtmlAttribute("data-role", "header");
