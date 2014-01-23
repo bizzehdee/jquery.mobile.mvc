@@ -128,5 +128,13 @@ namespace jquery.mobile.mvc.Abstract
 				htmlAttributes.Add(key, value);
 			}
 		}
+
+		protected void EnforceHtmlAttributeRemoval(String key)
+		{
+			if (htmlAttributes.ContainsKey(key))
+			{
+				htmlAttributes.Remove(key);
+			}
+		}
 	}
 }

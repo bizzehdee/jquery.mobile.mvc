@@ -18,25 +18,37 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
 */
-using jquery.mobile.mvc.Widgets;
 
-namespace jquery.mobile.mvc.Core
+using System;
+using jquery.mobile.mvc.Core;
+
+namespace jquery.mobile.mvc.Widgets
 {
-	public partial class jQueryMobile<TModel>
-    {
-		public Button Button(Button.ButtonType type = Widgets.Button.ButtonType.Button)
+	public class FlipSwitch : Widget<FlipSwitch>
+	{
+		public FlipSwitch() 
+			: base("input")
 		{
-			return new Button(type);
+			EnforceHtmlAttribute("type", "checkbox");
+			Role("flipswitch");
 		}
 
-		public DatePicker DatePicker()
+		public FlipSwitch OnText(String on)
 		{
-			return new DatePicker();
+			return Data("on-text", on);
 		}
 
-		public FlipSwitch FlipSwitch()
+		public FlipSwitch OffText(String off)
 		{
-			return new FlipSwitch();
+			return Data("off-text", off);
 		}
-    }
+
+		public FlipSwitch Checked(bool isChecked = true)
+		{
+			if(isChecked) EnforceHtmlAttribute("checked", "checked");
+			else EnforceHtmlAttributeRemoval("checked");
+
+			return this;
+		}
+	}
 }
