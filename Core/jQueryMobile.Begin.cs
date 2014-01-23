@@ -66,5 +66,17 @@ namespace jquery.mobile.mvc.Core
 			return new ButtonBuilder<TModel>(Html, new Button(type));
 		}
 		/*END BUTTON*/
+
+		/*BEGIN GRID*/
+		public GridBuilder<TModel> Begin(Grid grid)
+		{
+			return new GridBuilder<TModel>(Html, grid);
+		}
+
+		public GridBuilder<TModel> BeginGrid(Char gridType)
+		{
+			return new GridBuilder<TModel>(Html, new Grid(gridType));
+		}
+		/*END GRID*/
 	}
 }
