@@ -78,5 +78,17 @@ namespace jquery.mobile.mvc.Core
 			return new GridBuilder<TModel>(Html, new Grid(gridType));
 		}
 		/*END GRID*/
+
+		/*BEGIN LISTVIEW*/
+		public ListViewBuilder<TModel> Begin(ListView list)
+		{
+			return new ListViewBuilder<TModel>(Html, list);
+		}
+
+		public ListViewBuilder<TModel> BeginListView()
+		{
+			return new ListViewBuilder<TModel>(Html, new ListView());
+		}
+		/*END LISTVIEW*/
 	}
 }
