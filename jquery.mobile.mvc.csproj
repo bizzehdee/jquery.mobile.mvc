@@ -53,6 +53,7 @@
     <Compile Include="Builders\PageBuilder.cs" />
     <Compile Include="Abstract\Builder.cs" />
     <Compile Include="Abstract\Element.cs" />
+    <Compile Include="Builders\PanelBuilder.cs" />
     <Compile Include="Core\jQueryMobile.Begin.cs" />
     <Compile Include="Core\jQueryMobile.cs" />
     <Compile Include="Core\Widget.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Widgets\ListView.cs" />
     <Compile Include="Widgets\ListViewItem.cs" />
     <Compile Include="Widgets\Page.cs" />
+    <Compile Include="Widgets\Panel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\jQueryMobile.Widgets.cs" />
