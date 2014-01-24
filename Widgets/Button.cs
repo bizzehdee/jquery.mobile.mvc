@@ -20,6 +20,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 using System;
 using jquery.mobile.mvc.Core;
+using jquery.mobile.mvc.Interfaces;
 
 namespace jquery.mobile.mvc.Widgets
 {
@@ -59,7 +60,12 @@ namespace jquery.mobile.mvc.Widgets
 			return Data("inline", inline.ToString());
 		}
 
-		private static String GetButtonType(ButtonType type)
+		public Button Icon(Icon.IconType ico)
+		{
+			return AddClass(String.Format("ui-icon-{0}", Core.Icon.IconTypeToString(ico)));
+		}
+
+		public static String GetButtonType(ButtonType type)
 		{
 			switch (type)
 			{

@@ -28,8 +28,14 @@ namespace jquery.mobile.mvc.Core
 	{
 		private String _innerHtml;
 
-		public Widget(string tag) 
+		public Widget(string tag)
 			: base(tag)
+		{
+			_innerHtml = "";
+		}
+
+		public Widget(string tag, string innerTag)
+			: base(tag, innerTag)
 		{
 			_innerHtml = "";
 		}
@@ -100,9 +106,10 @@ namespace jquery.mobile.mvc.Core
 			return (T)this;
 		}
 
-		public T Icon(String iconName, bool noText = false)
+		public T Icon(Icon.IconType icon, bool noText = false)
 		{
-			AddClass(String.Format("ui-icon-{0}", iconName));
+			Data("icon", Core.Icon.IconTypeToString(icon));
+			AddClass(String.Format("ui-icon-{0}", Core.Icon.IconTypeToString(icon)));
 			if (noText) AddClass("ui-btn-icon-notext");
 			return (T) this;
 		}

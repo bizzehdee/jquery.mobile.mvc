@@ -102,5 +102,17 @@ namespace jquery.mobile.mvc.Core
 			return new PanelBuilder<TModel>(Html, new Panel());
 		}
 		/*END LISTVIEW*/
+
+		/*BEGIN NAVBAR*/
+		public NavbarBuilder<TModel> Begin(Navbar navbar)
+		{
+			return new NavbarBuilder<TModel>(Html, navbar);
+		}
+
+		public NavbarBuilder<TModel> BeginNavbar()
+		{
+			return new NavbarBuilder<TModel>(Html, new Navbar());
+		}
+		/*END NAVBAR*/
 	}
 }

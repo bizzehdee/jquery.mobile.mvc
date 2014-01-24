@@ -30,18 +30,27 @@ namespace jquery.mobile.mvc.Abstract
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		protected IDictionary<String, Object> HtmlAttributes;
 		protected String Tag;
+		protected String InnerTag;
 		protected String ClassToEnsure;
 
 		internal Element(String tag)
-        {
-            HtmlAttributes = new Dictionary<String, Object>();
-            Tag = tag;
-        }
+		{
+			HtmlAttributes = new Dictionary<String, Object>();
+			Tag = tag;
+		}
+
+		internal Element(String tag, String innerTag)
+		{
+			HtmlAttributes = new Dictionary<String, Object>();
+			Tag = tag;
+			InnerTag = innerTag;
+		}
 
 		internal String EndTag
 		{
 			get
 			{
+				if (!String.IsNullOrEmpty(InnerTag)) return String.Format("</{1}></{0}>", Tag, InnerTag);
 				return String.IsNullOrEmpty(Tag) ? String.Empty : String.Format("</{0}>", Tag);
 			}
 		}
@@ -55,6 +64,7 @@ namespace jquery.mobile.mvc.Abstract
 				TagBuilder builder = new TagBuilder(Tag);
 				builder.MergeAttributes(HtmlAttributes);
 
+				if (!String.IsNullOrEmpty(InnerTag)) return String.Format("{0}<{1}>", builder.ToString(TagRenderMode.StartTag), InnerTag);
 				return builder.ToString(TagRenderMode.StartTag);
 			}
 		}

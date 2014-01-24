@@ -18,21 +18,18 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
 */
-using System;
-using System.Web;
-using jquery.mobile.mvc.Core;
+using System.Web.Mvc;
+using jquery.mobile.mvc.Abstract;
+using jquery.mobile.mvc.Widgets;
 
-namespace jquery.mobile.mvc.Interfaces
+namespace jquery.mobile.mvc.Builders
 {
-	public interface IWidget<out T> : IHtmlString
+	public class NavbarItemBuilder<TModel> : Builder<TModel, NavbarItem>
 	{
-		T Id(String id);
-		T Data(String key, String val);
-		T Theme(String theme);
-		T Role(String role);
-		T InnerHtml(String innerHtml);
-		T AddClass(String className);
-		T RemoveClass(String className);
-		T Icon(Icon.IconType icon, bool noText = false);
+		public NavbarItemBuilder(HtmlHelper<TModel> htmlHelper, NavbarItem element) 
+			: base(htmlHelper, element)
+		{
+
+		}
 	}
 }

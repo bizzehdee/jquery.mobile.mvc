@@ -27,14 +27,14 @@ namespace jquery.mobile.mvc.Core
 		public HtmlHelper<TModel> Html;
 		public AjaxHelper<TModel> Ajax;
 
-		public jQueryMobile(HtmlHelper<TModel> _html)
+		public jQueryMobile(HtmlHelper<TModel> html)
 		{
-			Html = _html;
+			Html = html;
 		}
 
-		public jQueryMobile(AjaxHelper<TModel> _ajax)
+		public jQueryMobile(AjaxHelper<TModel> ajax)
 		{
-			Ajax = _ajax;
+			Ajax = ajax;
 		}
 	}
 }

@@ -50,6 +50,7 @@
     <Compile Include="Builders\GridBuilder.cs" />
     <Compile Include="Builders\ListViewBuilder.cs" />
     <Compile Include="Builders\ListViewItemBuilder.cs" />
+    <Compile Include="Builders\NavbarBuilder.cs" />
     <Compile Include="Builders\PageBuilder.cs" />
     <Compile Include="Abstract\Builder.cs" />
     <Compile Include="Abstract\Element.cs" />
@@ -68,8 +69,11 @@
     <Compile Include="Widgets\Form.cs" />
     <Compile Include="Widgets\Grid.cs" />
     <Compile Include="Widgets\GridBlock.cs" />
+    <Compile Include="Core\Icon.cs" />
     <Compile Include="Widgets\ListView.cs" />
     <Compile Include="Widgets\ListViewItem.cs" />
+    <Compile Include="Widgets\Navbar.cs" />
+    <Compile Include="Widgets\NavbarItem.cs" />
     <Compile Include="Widgets\Page.cs" />
     <Compile Include="Widgets\Panel.cs" />
   </ItemGroup>
