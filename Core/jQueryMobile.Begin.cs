@@ -90,5 +90,17 @@ namespace jquery.mobile.mvc.Core
 			return new ListViewBuilder<TModel>(Html, new ListView());
 		}
 		/*END LISTVIEW*/
+
+		/*BEGIN LISTVIEW*/
+		public PanelBuilder<TModel> Begin(Panel panel)
+		{
+			return new PanelBuilder<TModel>(Html, panel);
+		}
+
+		public PanelBuilder<TModel> BeginPanel()
+		{
+			return new PanelBuilder<TModel>(Html, new Panel());
+		}
+		/*END LISTVIEW*/
 	}
 }
