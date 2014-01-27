@@ -20,18 +20,32 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 using System;
 using jquery.mobile.mvc.Core;
-using jquery.mobile.mvc.Interfaces;
 
 namespace jquery.mobile.mvc.Widgets
 {
+	/// <summary>
+	/// jQuery Mobile marked up <see cref="Button"/>
+	/// </summary>
 	public class Button : Widget<Button>
 	{
+		/// <summary>
+		/// Button type to use, denotes the markup to output
+		/// </summary>
 		public enum ButtonType
 		{
 			Button,
 			Submit,
 			Reset,
 			Link
+		}
+
+		/// <summary>
+		/// Position to pace a button if the button is a toolbar button
+		/// </summary>
+		public enum ToolbarButtonPosition
+		{
+			Left,
+			Right
 		}
 
 		/// <summary>
@@ -48,6 +62,11 @@ namespace jquery.mobile.mvc.Widgets
 			}
 		}
 
+		/// <summary>
+		/// Sets the href attribute for <see cref="ButtonType.Link"/> buttons
+		/// </summary>
+		/// <param name="href">URL to set as the href</param>
+		/// <returns>This <see cref="Button"/></returns>
 		public Button Href(String href)
 		{
 			EnforceHtmlAttribute("href", href);
@@ -55,17 +74,35 @@ namespace jquery.mobile.mvc.Widgets
 			return this;
 		}
 
-		public Button Inline(bool inline)
+		/// <summary>
+		/// Sets the button to be inline or not
+		/// </summary>
+		/// <param name="on">true or false to set the inline option on or off</param>
+		/// <returns>This <see cref="Button"/></returns>
+		public Button Inline(bool on)
 		{
-			return Data("inline", inline.ToString());
+			return Data("inline", on ? "true" : "false");
 		}
 
-		public Button Icon(Icon.IconType ico)
+		/// <summary>
+		/// Sets the button to be a toolbar button and sets its position
+		/// </summary>
+		/// <param name="position">Position of the button within the toolbar</param>
+		/// <returns>This <see cref="Button"/></returns>
+		public Button ToolbarButton(ToolbarButtonPosition position)
 		{
-			return AddClass(String.Format("ui-icon-{0}", Core.Icon.IconTypeToString(ico)));
+			switch (position)
+			{
+				case ToolbarButtonPosition.Left:
+					return AddClass("ui-btn-left");
+				case ToolbarButtonPosition.Right:
+					return AddClass("ui-btn-right");
+			}
+
+			return this;
 		}
 
-		public static String GetButtonType(ButtonType type)
+		private static String GetButtonType(ButtonType type)
 		{
 			switch (type)
 			{

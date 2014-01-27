@@ -80,6 +80,15 @@ namespace jquery.mobile.mvc.Core
 			[Description("delete")] Delete
 		}
 
+		public enum IconPosition
+		{
+			Left,
+			Right,
+			Top,
+			Bottom,
+			NoText
+		}
+
 		public static String IconTypeToString(IconType icon)
 		{
 			FieldInfo fi = icon.GetType().GetField(icon.ToString());

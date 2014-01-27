@@ -33,6 +33,6 @@ namespace jquery.mobile.mvc.Interfaces
 		T InnerHtml(String innerHtml);
 		T AddClass(String className);
 		T RemoveClass(String className);
-		T Icon(Icon.IconType icon, bool noText = false);
+		T Icon(Icon.IconType icon, Icon.IconPosition position);
 	}
 }

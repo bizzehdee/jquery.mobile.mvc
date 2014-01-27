@@ -25,6 +25,9 @@ using System.Web.Mvc;
 
 namespace jquery.mobile.mvc.Abstract
 {
+	/// <summary>
+	/// Core HTML Element Class
+	/// </summary>
 	public abstract class Element
 	{
 		[EditorBrowsable(EditorBrowsableState.Never)]
@@ -33,12 +36,21 @@ namespace jquery.mobile.mvc.Abstract
 		protected String InnerTag;
 		protected String ClassToEnsure;
 
+		/// <summary>
+		/// Construct a new Element instance with the <paramref name="tag"/> as the element name
+		/// </summary>
+		/// <param name="tag">Element name to use. e.g. div, ul, li, span, input</param>
 		internal Element(String tag)
 		{
 			HtmlAttributes = new Dictionary<String, Object>();
 			Tag = tag;
 		}
 
+		/// <summary>
+		/// Construct a new Element instance with the <paramref name="tag"/> as the element name and <paramref name="innerTag"/> as the inner element name
+		/// </summary>
+		/// <param name="tag">Element name to use. e.g. div, ul, li, span, input</param>
+		/// <param name="innerTag">Inner element name to use. e.g. div, ul, li, span, input</param>
 		internal Element(String tag, String innerTag)
 		{
 			HtmlAttributes = new Dictionary<String, Object>();
@@ -46,6 +58,9 @@ namespace jquery.mobile.mvc.Abstract
 			InnerTag = innerTag;
 		}
 
+		/// <summary>
+		/// Properly formatted end tag for this element
+		/// </summary>
 		internal String EndTag
 		{
 			get
@@ -55,6 +70,9 @@ namespace jquery.mobile.mvc.Abstract
 			}
 		}
 
+		/// <summary>
+		/// Properly formatted start tag for this element with all attributes set
+		/// </summary>
 		internal virtual String StartTag
 		{
 			get
@@ -69,7 +87,79 @@ namespace jquery.mobile.mvc.Abstract
 			}
 		}
 
-		protected void MergeHtmlAttribute(String key, String value)
+		/// <summary>
+		/// Ensures that the class name <paramref name="className"/> is added to the element
+		/// </summary>
+		/// <param name="className">Class name to add to the element</param>
+		protected void EnforceClass(String className)
+		{
+			if (HtmlAttributes.ContainsKey("class"))
+			{
+				String currentValue = HtmlAttributes["class"].ToString();
+				if (!currentValue.Contains(className))
+				{
+					HtmlAttributes["class"] += " " + className;
+				}
+			}
+			else
+			{
+				MergeHtmlAttribute("class", className);
+			}
+		}
+
+		/// <summary>
+		/// Ensures that the class <paramref name="className"/> is removed from the element
+		/// </summary>
+		/// <param name="className">Class name to remove</param>
+		protected void EnforceClassRemoval(String className)
+		{
+			if (!HtmlAttributes.ContainsKey("class")) return;
+
+			String currentValue = HtmlAttributes["class"].ToString();
+			if (currentValue.Contains(className))
+			{
+				HtmlAttributes["class"] = currentValue.Replace(className, "").Replace("  ", "").Trim();
+			}
+		}
+
+		/// <summary>
+		/// Ensures the HTML attribute <paramref name="key"/> is added to the element with the value of <paramref name="value"/>
+		/// </summary>
+		/// <param name="key">HTML attribute to add</param>
+		/// <param name="value">HTML attribute value</param>
+		/// <param name="replaceExisting">Whether or not to replace any existing attributes of the same name</param>
+		protected void EnforceHtmlAttribute(String key, String value, Boolean replaceExisting = true)
+		{
+			if (HtmlAttributes.ContainsKey(key))
+			{
+				if (replaceExisting)
+				{
+					HtmlAttributes[key] = value;
+				}
+				else
+				{
+					HtmlAttributes[key] += " " + value;
+				}
+			}
+			else
+			{
+				HtmlAttributes.Add(key, value);
+			}
+		}
+
+		/// <summary>
+		/// Ensures the HTML attribute <paramref name="key"/> is removed from the element
+		/// </summary>
+		/// <param name="key">HTML attribute to remove</param>
+		protected void EnforceHtmlAttributeRemoval(String key)
+		{
+			if (HtmlAttributes.ContainsKey(key))
+			{
+				HtmlAttributes.Remove(key);
+			}
+		}
+
+		private void MergeHtmlAttribute(String key, String value)
 		{
 			if (HtmlAttributes != null)
 			{
@@ -91,60 +181,6 @@ namespace jquery.mobile.mvc.Abstract
 			}
 
 			if (!String.IsNullOrEmpty(ClassToEnsure)) EnforceClass(ClassToEnsure);
-		}
-
-		protected void EnforceClass(String className)
-		{
-			if (HtmlAttributes.ContainsKey("class"))
-			{
-				String currentValue = HtmlAttributes["class"].ToString();
-				if (!currentValue.Contains(className))
-				{
-					HtmlAttributes["class"] += " " + className;
-				}
-			}
-			else
-			{
-				MergeHtmlAttribute("class", className);
-			}
-		}
-
-		protected void EnforceClassRemoval(String className)
-		{
-			if (!HtmlAttributes.ContainsKey("class")) return;
-
-			String currentValue = HtmlAttributes["class"].ToString();
-			if (currentValue.Contains(className))
-			{
-				HtmlAttributes["class"] = currentValue.Replace(className, "").Replace("  ", "").Trim();
-			}
-		}
-
-		protected void EnforceHtmlAttribute(String key, String value, Boolean replaceExisting = true)
-		{
-			if (HtmlAttributes.ContainsKey(key))
-			{
-				if (replaceExisting)
-				{
-					HtmlAttributes[key] = value;
-				}
-				else
-				{
-					HtmlAttributes[key] += " " + value;
-				}
-			}
-			else
-			{
-				HtmlAttributes.Add(key, value);
-			}
-		}
-
-		protected void EnforceHtmlAttributeRemoval(String key)
-		{
-			if (HtmlAttributes.ContainsKey(key))
-			{
-				HtmlAttributes.Remove(key);
-			}
 		}
 	}
 }

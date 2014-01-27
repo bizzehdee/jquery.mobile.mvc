@@ -19,6 +19,7 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
 */
 using System;
+using System.Collections.Generic;
 using jquery.mobile.mvc.Abstract;
 using jquery.mobile.mvc.Interfaces;
 
@@ -53,6 +54,13 @@ namespace jquery.mobile.mvc.Core
 			return (T)this;
 		}
 
+		public T Data(KeyValuePair<String, String> pair)
+		{
+			EnforceHtmlAttribute(String.Format("data-{0}", pair.Key), pair.Value);
+
+			return (T)this;
+		}
+
 		public T Theme(String theme)
 		{
 			return Data("theme", theme);
@@ -63,9 +71,9 @@ namespace jquery.mobile.mvc.Core
 			return Data("role", role);
 		}
 
-		public T Mini(bool mini)
+		public T Mini(bool on)
 		{
-			return Data("mini", mini.ToString());
+			return Data("mini", on ? "true" : "false");
 		}
 
 		public T Native()
@@ -87,6 +95,43 @@ namespace jquery.mobile.mvc.Core
 			return (T)this;
 		}
 
+		public T Corners(bool on)
+		{
+			return on ? AddClass("ui-corner-all") : RemoveClass("ui-corner-all");
+		}
+
+		public T Icon(Icon.IconType icon, Icon.IconPosition position)
+		{
+			Data("icon", Core.Icon.IconTypeToString(icon));
+			AddClass(String.Format("ui-icon-{0}", Core.Icon.IconTypeToString(icon)));
+
+			switch (position)
+			{
+				case Core.Icon.IconPosition.Left:
+					AddClass("ui-btn-icon-left");
+					break;
+				case Core.Icon.IconPosition.Right:
+					AddClass("ui-btn-icon-right");
+					break;
+				case Core.Icon.IconPosition.Top:
+					AddClass("ui-btn-icon-top");
+					break;
+				case Core.Icon.IconPosition.Bottom:
+					AddClass("ui-btn-icon-bottom");
+					break;
+				case Core.Icon.IconPosition.NoText:
+					AddClass("ui-btn-icon-notext");
+					break;
+			}
+
+			return (T)this;
+		}
+
+		public T Shadow(bool on)
+		{
+			return on ? AddClass("ui-shadow") : RemoveClass("ui-shadow");
+		}
+
 		public T AddClass(String className)
 		{
 			EnforceClass(className);
@@ -104,14 +149,6 @@ namespace jquery.mobile.mvc.Core
 			_innerHtml = innerHtml;
 
 			return (T)this;
-		}
-
-		public T Icon(Icon.IconType icon, bool noText = false)
-		{
-			Data("icon", Core.Icon.IconTypeToString(icon));
-			AddClass(String.Format("ui-icon-{0}", Core.Icon.IconTypeToString(icon)));
-			if (noText) AddClass("ui-btn-icon-notext");
-			return (T) this;
 		}
 
 		public string ToHtmlString()
