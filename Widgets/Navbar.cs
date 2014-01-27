@@ -22,7 +22,7 @@ using jquery.mobile.mvc.Core;
 
 namespace jquery.mobile.mvc.Widgets
 {
-	public class Navbar : Widget<Navbar>
+	public partial class Navbar : Widget<Navbar>
 	{
 		public Navbar() 
 			: base("div", "ul")

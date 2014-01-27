@@ -22,12 +22,15 @@ using jquery.mobile.mvc.Core;
 
 namespace jquery.mobile.mvc.Widgets
 {
-	public class ListViewItem : Widget<ListViewItem>
+	public partial class Navbar
 	{
-		public ListViewItem() 
-			: base("li")
+		public class Item : Widget<Item>
 		{
+			public Item()
+				: base("li")
+			{
 
+			}
 		}
 	}
 }

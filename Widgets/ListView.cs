@@ -22,7 +22,7 @@ using jquery.mobile.mvc.Core;
 
 namespace jquery.mobile.mvc.Widgets
 {
-	public class ListView : Widget<ListView>
+	public partial class ListView : Widget<ListView>
 	{
 		public ListView(bool ordered = false)
 			: base(ordered ? "ol" : "ul")

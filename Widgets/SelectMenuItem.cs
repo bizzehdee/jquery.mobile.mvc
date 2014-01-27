@@ -31,6 +31,13 @@ namespace jquery.mobile.mvc.Widgets
 
 		}
 
+		public SelectMenuItem(String value, String display)
+			: base("option")
+		{
+			Value(value);
+			Display(display);
+		}
+
 		public SelectMenuItem Value(String val)
 		{
 			EnforceHtmlAttribute("value", val);
