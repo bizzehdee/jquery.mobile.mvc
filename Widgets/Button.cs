@@ -19,6 +19,7 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
 */
 using System;
+using System.ComponentModel;
 using jquery.mobile.mvc.Core;
 
 namespace jquery.mobile.mvc.Widgets
@@ -33,10 +34,10 @@ namespace jquery.mobile.mvc.Widgets
 		/// </summary>
 		public enum ButtonType
 		{
-			Button,
-			Submit,
-			Reset,
-			Link
+			[Description("button")] Button,
+			[Description("input")] Submit,
+			[Description("input")] Reset,
+			[Description("a")] Link
 		}
 
 		/// <summary>
@@ -53,7 +54,7 @@ namespace jquery.mobile.mvc.Widgets
 		/// </summary>
 		/// <param name="type"><see cref="Button"/> type.</param>
 		public Button(ButtonType type = ButtonType.Button)
-			: base(GetButtonType(type))
+			: base(Misc.GetEnumDescription(type))
 		{
 			EnforceClass("ui-btn");
 			if (type == ButtonType.Submit)
@@ -100,19 +101,6 @@ namespace jquery.mobile.mvc.Widgets
 			}
 
 			return this;
-		}
-
-		private static String GetButtonType(ButtonType type)
-		{
-			switch (type)
-			{
-				case ButtonType.Submit:
-					return "input";
-				case ButtonType.Link:
-					return "a";
-				default:
-					return "button";
-			}
 		}
 	}
 }

@@ -88,14 +88,5 @@ namespace jquery.mobile.mvc.Core
 			Bottom,
 			NoText
 		}
-
-		public static String IconTypeToString(IconType icon)
-		{
-			FieldInfo fi = icon.GetType().GetField(icon.ToString());
-
-			DescriptionAttribute[] attributes = (DescriptionAttribute[])fi.GetCustomAttributes(typeof(DescriptionAttribute), false);
-
-			return attributes.Length > 0 ? attributes[0].Description : icon.ToString();
-		}
 	}
 }

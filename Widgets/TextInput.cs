@@ -19,36 +19,59 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
 */
 using System;
+using System.ComponentModel;
 using jquery.mobile.mvc.Core;
 
 namespace jquery.mobile.mvc.Widgets
 {
-	public class Panel : Widget<Panel>
+	public class TextInput : Widget<TextInput>
 	{
-		public Panel() 
-			: base("div")
+		public enum TextInputType
 		{
-			Role("panel");
+			[Description("text")] Text,
+			[Description("number")] Number,
+			[Description("search")] Search,
+			[Description("date")] Date,
+			[Description("month")] Month,
+			[Description("week")] Week,
+			[Description("time")] Time,
+			[Description("datetime")] DateTime,
+			[Description("phone")] Phone,
+			[Description("email")] Email,
+			[Description("url")] URL,
+			[Description("password")] Password,
+			[Description("color")] Colour,
+			[Description("color")] Color = Colour,
+			[Description("file")] File
 		}
 
-		public Panel SwipeClose(bool on)
+		public TextInput() 
+			: base("input")
 		{
-			return Data("swipe-close", on ? "true" : "false");
+			EnforceHtmlAttribute("type", "text");
 		}
 
-		public Panel Dismissible(bool on)
+		public TextInput Type(TextInputType type)
 		{
-			return Data("dismissible", on ? "true" : "false");
+			EnforceHtmlAttribute("type", Misc.GetEnumDescription(type));
+			return this;
 		}
 
-		public Panel Position(String leftOrRight = "left")
+		public TextInput ClearButton(bool on)
 		{
-			return Data("position", leftOrRight);
+			return Data("clear-btn", on ? "true" : "false");
 		}
 
-		public Panel Display(String displayType = "reveal")
+		public TextInput Placeholder(String placeholder)
 		{
-			return Data("display", displayType);
+			EnforceHtmlAttribute("placeholder", placeholder);
+			return this;
+		}
+
+		public TextInput Value(String value)
+		{
+			EnforceHtmlAttribute("value", value);
+			return this;
 		}
 	}
 }

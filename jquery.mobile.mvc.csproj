@@ -60,6 +60,7 @@
     <Compile Include="Builders\ToolbarBuilder.cs" />
     <Compile Include="Core\jQueryMobile.Begin.cs" />
     <Compile Include="Core\jQueryMobile.cs" />
+    <Compile Include="Core\Misc.cs" />
     <Compile Include="Core\Widget.cs" />
     <Compile Include="Interfaces\IWidget.cs" />
     <Compile Include="jQueryMobileHtmlExtensions.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="Widgets\Panel.cs" />
     <Compile Include="Widgets\SelectMenu.cs" />
     <Compile Include="Widgets\SelectMenu.Item.cs" />
+    <Compile Include="Widgets\TextInput.cs" />
     <Compile Include="Widgets\Toolbar.cs" />
   </ItemGroup>
   <ItemGroup>

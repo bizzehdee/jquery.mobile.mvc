@@ -28,6 +28,8 @@ namespace jquery.mobile.mvc.Abstract
 {
 	public abstract class Builder<TModel, T> : IDisposable where T : Widget<T>
 	{
+		private bool _disposed = false;
+
 		protected readonly T Element;
 
 		protected readonly TextWriter TextWriter;
@@ -61,10 +63,24 @@ namespace jquery.mobile.mvc.Abstract
         }
 
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public virtual void Dispose()
+		public void Dispose()
 		{
-			TextWriter.WriteLine(Element.EndTag);
-			TextWriter.WriteLine();
+			Dispose(true);
+			GC.SuppressFinalize(this);
+		}
+
+		[EditorBrowsable(EditorBrowsableState.Never)]
+		protected virtual void Dispose(bool disposing)
+		{
+			if (_disposed) return;
+
+			if (disposing)
+			{
+				TextWriter.WriteLine(Element.EndTag);
+				TextWriter.WriteLine();
+			}
+
+			_disposed = true;
 		}
 	}
 }

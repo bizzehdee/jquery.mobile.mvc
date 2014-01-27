@@ -19,36 +19,20 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
 */
 using System;
-using jquery.mobile.mvc.Core;
+using System.ComponentModel;
+using System.Reflection;
 
-namespace jquery.mobile.mvc.Widgets
+namespace jquery.mobile.mvc.Core
 {
-	public class Panel : Widget<Panel>
+	internal static class Misc
 	{
-		public Panel() 
-			: base("div")
+		internal static String GetEnumDescription(Enum i)
 		{
-			Role("panel");
-		}
+			FieldInfo fi = (i).GetType().GetField(i.ToString());
 
-		public Panel SwipeClose(bool on)
-		{
-			return Data("swipe-close", on ? "true" : "false");
-		}
+			DescriptionAttribute[] attributes = (DescriptionAttribute[])fi.GetCustomAttributes(typeof(DescriptionAttribute), false);
 
-		public Panel Dismissible(bool on)
-		{
-			return Data("dismissible", on ? "true" : "false");
-		}
-
-		public Panel Position(String leftOrRight = "left")
-		{
-			return Data("position", leftOrRight);
-		}
-
-		public Panel Display(String displayType = "reveal")
-		{
-			return Data("display", displayType);
+			return attributes.Length > 0 ? attributes[0].Description : i.ToString();
 		}
 	}
 }

@@ -102,8 +102,8 @@ namespace jquery.mobile.mvc.Core
 
 		public T Icon(Icon.IconType icon, Icon.IconPosition position)
 		{
-			Data("icon", Core.Icon.IconTypeToString(icon));
-			AddClass(String.Format("ui-icon-{0}", Core.Icon.IconTypeToString(icon)));
+			Data("icon", Misc.GetEnumDescription(icon));
+			AddClass(String.Format("ui-icon-{0}", Misc.GetEnumDescription(icon)));
 
 			switch (position)
 			{
