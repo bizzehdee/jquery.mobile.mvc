@@ -18,6 +18,8 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
 */
+
+using System;
 using System.Web.Mvc;
 using jquery.mobile.mvc.Abstract;
 using jquery.mobile.mvc.Widgets;
@@ -30,6 +32,11 @@ namespace jquery.mobile.mvc.Builders
 			: base(htmlHelper, element)
 		{
 
+		}
+
+		public SelectMenu.Item AddItem(String value, String display)
+		{
+			return new SelectMenu.Item(value, display);
 		}
 	}
 }

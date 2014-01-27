@@ -37,9 +37,14 @@ namespace jquery.mobile.mvc.Builders
 			return new ContentBuilder<TModel>(HtmlHelper, new Content(type));
 		}
 
-		public ContentBuilder<TModel> BeginHeader()
+		public ToolbarBuilder<TModel> Begin(Toolbar toolbar)
 		{
-			return Begin(Content.ContentType.Header);
+			return new ToolbarBuilder<TModel>(HtmlHelper, toolbar);
+		}
+
+		public ToolbarBuilder<TModel> BeginHeader()
+		{
+			return new ToolbarBuilder<TModel>(HtmlHelper, new Toolbar().Role("header"));
 		}
 
 		public ContentBuilder<TModel> BeginContent()
@@ -47,9 +52,9 @@ namespace jquery.mobile.mvc.Builders
 			return Begin(Content.ContentType.Content);
 		}
 
-		public ContentBuilder<TModel> BeginFooter()
+		public ToolbarBuilder<TModel> BeginFooter()
 		{
-			return Begin(Content.ContentType.Footer);
+			return new ToolbarBuilder<TModel>(HtmlHelper, new Toolbar().Role("footer"));
 		}
 	}
 }

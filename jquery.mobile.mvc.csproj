@@ -57,6 +57,7 @@
     <Compile Include="Abstract\Element.cs" />
     <Compile Include="Builders\PanelBuilder.cs" />
     <Compile Include="Builders\SelectMenuBuilder.cs" />
+    <Compile Include="Builders\ToolbarBuilder.cs" />
     <Compile Include="Core\jQueryMobile.Begin.cs" />
     <Compile Include="Core\jQueryMobile.cs" />
     <Compile Include="Core\Widget.cs" />
@@ -73,13 +74,14 @@
     <Compile Include="Widgets\GridBlock.cs" />
     <Compile Include="Core\Icon.cs" />
     <Compile Include="Widgets\ListView.cs" />
-    <Compile Include="Widgets\ListViewItem.cs" />
+    <Compile Include="Widgets\ListView.Item.cs" />
     <Compile Include="Widgets\Navbar.cs" />
-    <Compile Include="Widgets\NavbarItem.cs" />
+    <Compile Include="Widgets\Navbar.Item.cs" />
     <Compile Include="Widgets\Page.cs" />
     <Compile Include="Widgets\Panel.cs" />
     <Compile Include="Widgets\SelectMenu.cs" />
-    <Compile Include="Widgets\SelectMenuItem.cs" />
+    <Compile Include="Widgets\SelectMenu.Item.cs" />
+    <Compile Include="Widgets\Toolbar.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\jQueryMobile.Widgets.cs" />

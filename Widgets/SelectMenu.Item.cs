@@ -18,18 +18,44 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
 */
-using System.Web.Mvc;
-using jquery.mobile.mvc.Abstract;
-using jquery.mobile.mvc.Widgets;
+using System;
+using jquery.mobile.mvc.Core;
 
-namespace jquery.mobile.mvc.Builders
+namespace jquery.mobile.mvc.Widgets
 {
-	public class ListViewItemBuilder<TModel> : Builder<TModel, ListView.Item>
+	public partial class SelectMenu
 	{
-		public ListViewItemBuilder(HtmlHelper<TModel> htmlHelper, ListView.Item element) 
-			: base(htmlHelper, element)
+		public class Item : Widget<Item>
 		{
+			public Item()
+				: base("option")
+			{
 
+			}
+
+			public Item(String value, String display)
+				: base("option")
+			{
+				Value(value);
+				Display(display);
+			}
+
+			public Item Value(String val)
+			{
+				EnforceHtmlAttribute("value", val);
+				return this;
+			}
+
+			public Item Value(object val)
+			{
+				EnforceHtmlAttribute("value", val.ToString());
+				return this;
+			}
+
+			public Item Display(String val)
+			{
+				return InnerHtml(val);
+			}
 		}
 	}
 }

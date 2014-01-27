@@ -24,9 +24,9 @@ using jquery.mobile.mvc.Widgets;
 
 namespace jquery.mobile.mvc.Builders
 {
-	public class ListViewItemBuilder<TModel> : Builder<TModel, ListView.Item>
+	public class ToolbarBuilder<TModel> : Builder<TModel, Toolbar>
 	{
-		public ListViewItemBuilder(HtmlHelper<TModel> htmlHelper, ListView.Item element) 
+		public ToolbarBuilder(HtmlHelper<TModel> htmlHelper, Toolbar element) 
 			: base(htmlHelper, element)
 		{
 

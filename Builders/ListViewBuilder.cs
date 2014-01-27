@@ -32,14 +32,14 @@ namespace jquery.mobile.mvc.Builders
 
 		}
 
-		public ListViewItemBuilder<TModel> Begin(ListViewItem item)
+		public ListViewItemBuilder<TModel> Begin(ListView.Item item)
 		{
 			return new ListViewItemBuilder<TModel>(HtmlHelper, item);
 		}
 
 		public ListViewItemBuilder<TModel> BeginItem()
 		{
-			return new ListViewItemBuilder<TModel>(HtmlHelper, new ListViewItem());
+			return new ListViewItemBuilder<TModel>(HtmlHelper, new ListView.Item());
 		}
 	}
 }

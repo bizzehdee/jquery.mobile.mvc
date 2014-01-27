@@ -32,14 +32,14 @@ namespace jquery.mobile.mvc.Builders
 
 		}
 
-		public NavbarItemBuilder<TModel> Begin(NavbarItem item)
+		public NavbarItemBuilder<TModel> Begin(Navbar.Item item)
 		{
 			return new NavbarItemBuilder<TModel>(HtmlHelper, item);
 		}
 
 		public NavbarItemBuilder<TModel> BeginNavbarItem()
 		{
-			return new NavbarItemBuilder<TModel>(HtmlHelper, new NavbarItem());
+			return new NavbarItemBuilder<TModel>(HtmlHelper, new Navbar.Item());
 		}
 	}
 }

@@ -22,7 +22,7 @@ using jquery.mobile.mvc.Core;
 
 namespace jquery.mobile.mvc.Widgets
 {
-	public class SelectMenu : Widget<SelectMenu>
+	public partial class SelectMenu : Widget<SelectMenu>
 	{
 		public SelectMenu() 
 			: base("select")

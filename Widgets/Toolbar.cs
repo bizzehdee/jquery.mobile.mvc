@@ -18,41 +18,26 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
 */
-using System;
 using jquery.mobile.mvc.Core;
 
 namespace jquery.mobile.mvc.Widgets
 {
-	public class SelectMenuItem : Widget<SelectMenuItem>
+	public class Toolbar : Widget<Toolbar>
 	{
-		public SelectMenuItem() 
-			: base("option")
+		public Toolbar() 
+			: base("div")
 		{
 
 		}
 
-		public SelectMenuItem(String value, String display)
-			: base("option")
+		public Toolbar Fixed(bool on)
 		{
-			Value(value);
-			Display(display);
+			return on ? Data("position", "fixed") : Data("position", "");
 		}
 
-		public SelectMenuItem Value(String val)
+		public Toolbar FullScreen(bool on)
 		{
-			EnforceHtmlAttribute("value", val);
-			return this;
-		}
-
-		public SelectMenuItem Value(object val)
-		{
-			EnforceHtmlAttribute("value", val.ToString());
-			return this;
-		}
-
-		public SelectMenuItem Display(String val)
-		{
-			return InnerHtml(val);
+			return Data("fullscreen", on ? "true" : "false");
 		}
 	}
 }

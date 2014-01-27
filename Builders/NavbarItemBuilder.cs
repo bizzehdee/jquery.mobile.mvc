@@ -24,9 +24,9 @@ using jquery.mobile.mvc.Widgets;
 
 namespace jquery.mobile.mvc.Builders
 {
-	public class NavbarItemBuilder<TModel> : Builder<TModel, NavbarItem>
+	public class NavbarItemBuilder<TModel> : Builder<TModel, Navbar.Item>
 	{
-		public NavbarItemBuilder(HtmlHelper<TModel> htmlHelper, NavbarItem element) 
+		public NavbarItemBuilder(HtmlHelper<TModel> htmlHelper, Navbar.Item element) 
 			: base(htmlHelper, element)
 		{
 
