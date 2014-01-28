@@ -66,6 +66,8 @@
     <Compile Include="jQueryMobileHtmlExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Widgets\Button.cs" />
+    <Compile Include="Widgets\Checkbox.cs" />
+    <Compile Include="Widgets\Collapsible.cs" />
     <Compile Include="Widgets\Content.cs" />
     <Compile Include="Widgets\ControlGroup.cs" />
     <Compile Include="Widgets\DatePicker.cs" />
@@ -80,6 +82,7 @@
     <Compile Include="Widgets\Navbar.Item.cs" />
     <Compile Include="Widgets\Page.cs" />
     <Compile Include="Widgets\Panel.cs" />
+    <Compile Include="Widgets\RadioButton.cs" />
     <Compile Include="Widgets\SelectMenu.cs" />
     <Compile Include="Widgets\SelectMenu.Item.cs" />
     <Compile Include="Widgets\TextInput.cs" />
