@@ -28,7 +28,7 @@ namespace jquery.mobile.mvc.Abstract
 {
 	public abstract class Builder<TModel, T> : IDisposable where T : Widget<T>
 	{
-		private bool _disposed = false;
+		private bool _disposed;
 
 		protected readonly T Element;
 
@@ -37,30 +37,30 @@ namespace jquery.mobile.mvc.Abstract
 		protected readonly AjaxHelper<TModel> AjaxHelper;
 
 		internal Builder(HtmlHelper<TModel> htmlHelper, T element)
-        {
+		{
 			if (element == null)
-            {
+			{
 				throw new ArgumentNullException("element");
-            }
+			}
 
 			Element = element;
 			HtmlHelper = htmlHelper;
-            TextWriter = HtmlHelper.ViewContext.Writer;
+			TextWriter = HtmlHelper.ViewContext.Writer;
 			TextWriter.WriteLine(Element.StartTag);
-        }
+		}
 
 		internal Builder(AjaxHelper<TModel> ajaxHelper, T element)
-        {
+		{
 			if (element == null)
-            {
+			{
 				throw new ArgumentNullException("element");
-            }
+			}
 
 			Element = element;
 			AjaxHelper = ajaxHelper;
-            TextWriter = AjaxHelper.ViewContext.Writer;
+			TextWriter = AjaxHelper.ViewContext.Writer;
 			TextWriter.WriteLine(Element.StartTag);
-        }
+		}
 
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		public void Dispose()

@@ -23,8 +23,8 @@ using jquery.mobile.mvc.Core;
 
 namespace jquery.mobile.mvc
 {
-    public static class jQueryMobileHtmlExtensions
-    {
+	public static class jQueryMobileHtmlExtensions
+	{
 		public static jQueryMobile<TModel> jQueryMobile<TModel>(this HtmlHelper<TModel> helper)
 		{
 			return new jQueryMobile<TModel>(helper);
@@ -44,5 +44,5 @@ namespace jquery.mobile.mvc
 		{
 			return jQueryMobile(helper);
 		}
-    }
+	}
 }
