@@ -34,7 +34,7 @@ namespace jquery.mobile.mvc.Builders
 
 		public ControlGroupBuilder<TModel> Mini()
 		{
-			Element.Mini();
+			Element.Mini(true);
 			return this;
 		}
 

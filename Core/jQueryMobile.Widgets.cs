@@ -29,6 +29,11 @@ namespace jquery.mobile.mvc.Core
 			return new Button(type);
 		}
 
+		public Checkbox Checkbox()
+		{
+			return new Checkbox();
+		}
+
 		public DatePicker DatePicker()
 		{
 			return new DatePicker();
@@ -37,6 +42,16 @@ namespace jquery.mobile.mvc.Core
 		public FlipSwitch FlipSwitch()
 		{
 			return new FlipSwitch();
+		}
+
+		public RadioButton RadioButton()
+		{
+			return new RadioButton();
+		}
+
+		public TextInput TextInput()
+		{
+			return new TextInput();
 		}
 	}
 }

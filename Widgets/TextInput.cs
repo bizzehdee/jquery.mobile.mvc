@@ -42,18 +42,34 @@ namespace jquery.mobile.mvc.Widgets
 			[Description("password")] Password,
 			[Description("color")] Colour,
 			[Description("color")] Color = Colour,
-			[Description("file")] File
+			[Description("file")] File,
+			[Description("textarea")] TextArea
 		}
 
-		public TextInput() 
+		public TextInput()
 			: base("input")
 		{
 			EnforceHtmlAttribute("type", "text");
 		}
 
+		public TextInput(TextInputType type)
+			: base(type == TextInputType.TextArea ? "textarea" : "input")
+		{
+			if (type != TextInputType.TextArea) EnforceHtmlAttribute("type", Misc.GetEnumDescription(type));
+		}
+
 		public TextInput Type(TextInputType type)
 		{
-			EnforceHtmlAttribute("type", Misc.GetEnumDescription(type));
+			if (type != TextInputType.TextArea)
+			{
+				Tag = "input";
+				EnforceHtmlAttribute("type", Misc.GetEnumDescription(type));
+			}
+			else
+			{
+				Tag = "textarea";
+			}
+
 			return this;
 		}
 

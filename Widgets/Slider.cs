@@ -18,45 +18,47 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
 */
+
 using System;
 using jquery.mobile.mvc.Core;
 
 namespace jquery.mobile.mvc.Widgets
 {
-	public class Form : Widget<Form>
+	public class Slider : Widget<Slider>
 	{
-		public enum FormMethod
+		public Slider()
+			: base("input")
 		{
-			Get,
-			Post
+			EnforceHtmlAttribute("type", "range");
 		}
 
-		public Form()
-			: base("form")
+		public Slider Min(float min)
 		{
-
-		}
-
-		public Form Action(String action)
-		{
-			EnforceHtmlAttribute("action", action);
-
+			EnforceHtmlAttribute("min", String.Format("{0}", min));
 			return this;
 		}
 
-		public Form Method(FormMethod method)
+		public Slider Max(float max)
 		{
-			switch (method)
-			{
-				case FormMethod.Get:
-					EnforceHtmlAttribute("method", "get");
-					break;
-				case FormMethod.Post:
-					EnforceHtmlAttribute("method", "post");
-					break;
-			}
-
+			EnforceHtmlAttribute("max", String.Format("{0}", max));
 			return this;
+		}
+
+		public Slider Value(float val)
+		{
+			EnforceHtmlAttribute("value", String.Format("{0}", val));
+			return this;
+		}
+
+		public Slider Step(float val)
+		{
+			EnforceHtmlAttribute("step", String.Format("{0}", val));
+			return this;
+		}
+
+		public Slider Highlight(bool on)
+		{
+			return Data("highlight", on ? "true" : "false");
 		}
 	}
 }

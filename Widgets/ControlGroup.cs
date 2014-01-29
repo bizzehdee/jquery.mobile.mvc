@@ -35,11 +35,5 @@ namespace jquery.mobile.mvc.Widgets
 			Data("type", "horizontal");
 			return this;
 		}
-
-		public ControlGroup Mini()
-		{
-			Data("mini", "true");
-			return this;
-		}
 	}
 }

@@ -85,6 +85,7 @@
     <Compile Include="Widgets\RadioButton.cs" />
     <Compile Include="Widgets\SelectMenu.cs" />
     <Compile Include="Widgets\SelectMenu.Item.cs" />
+    <Compile Include="Widgets\Slider.cs" />
     <Compile Include="Widgets\TextInput.cs" />
     <Compile Include="Widgets\Toolbar.cs" />
   </ItemGroup>
