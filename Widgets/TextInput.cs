@@ -73,7 +73,7 @@ namespace jquery.mobile.mvc.Widgets
 			return this;
 		}
 
-		public TextInput ClearButton(bool on)
+		public TextInput ClearButton(Boolean on)
 		{
 			return Data("clear-btn", on ? "true" : "false");
 		}

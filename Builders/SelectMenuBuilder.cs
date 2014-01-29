@@ -26,15 +26,15 @@ using jquery.mobile.mvc.Widgets;
 
 namespace jquery.mobile.mvc.Builders
 {
-	public class SelectMenuBuilder<TModel> : Builder<TModel, Button>
+	public class SelectMenuBuilder<TModel> : Builder<TModel, SelectMenu>
 	{
-		public SelectMenuBuilder(HtmlHelper<TModel> htmlHelper, Button element) 
+		public SelectMenuBuilder(HtmlHelper<TModel> htmlHelper, SelectMenu element) 
 			: base(htmlHelper, element)
 		{
 
 		}
 
-		public SelectMenu.Item AddItem(String value, String display)
+		public SelectMenu.Item Item(String value, String display)
 		{
 			return new SelectMenu.Item(value, display);
 		}

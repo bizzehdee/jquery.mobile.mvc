@@ -80,7 +80,7 @@ namespace jquery.mobile.mvc.Widgets
 		/// </summary>
 		/// <param name="on">true or false to set the inline option on or off</param>
 		/// <returns>This <see cref="Button"/></returns>
-		public Button Inline(bool on)
+		public Button Inline(Boolean on)
 		{
 			return Data("inline", on ? "true" : "false");
 		}

@@ -28,7 +28,7 @@ namespace jquery.mobile.mvc.Abstract
 {
 	public abstract class Builder<TModel, T> : IDisposable where T : Widget<T>
 	{
-		private bool _disposed;
+		private Boolean _disposed;
 
 		protected readonly T Element;
 
@@ -70,7 +70,7 @@ namespace jquery.mobile.mvc.Abstract
 		}
 
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		protected virtual void Dispose(bool disposing)
+		protected virtual void Dispose(Boolean disposing)
 		{
 			if (_disposed) return;
 

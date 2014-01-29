@@ -38,7 +38,7 @@ namespace jquery.mobile.mvc.Widgets
 			return this;
 		}
 
-		public RadioButton Checked(bool on)
+		public RadioButton Checked(Boolean on)
 		{
 			if (on) EnforceHtmlAttribute("checked", "checked");
 			else EnforceHtmlAttributeRemoval("checked");

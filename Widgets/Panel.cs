@@ -31,12 +31,12 @@ namespace jquery.mobile.mvc.Widgets
 			Role("panel");
 		}
 
-		public Panel SwipeClose(bool on)
+		public Panel SwipeClose(Boolean on)
 		{
 			return Data("swipe-close", on ? "true" : "false");
 		}
 
-		public Panel Dismissible(bool on)
+		public Panel Dismissible(Boolean on)
 		{
 			return Data("dismissible", on ? "true" : "false");
 		}

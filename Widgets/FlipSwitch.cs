@@ -43,7 +43,7 @@ namespace jquery.mobile.mvc.Widgets
 			return Data("off-text", off);
 		}
 
-		public FlipSwitch Checked(bool isChecked = true)
+		public FlipSwitch Checked(Boolean isChecked = true)
 		{
 			if(isChecked) EnforceHtmlAttribute("checked", "checked");
 			else EnforceHtmlAttributeRemoval("checked");

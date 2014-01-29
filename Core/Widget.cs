@@ -29,13 +29,13 @@ namespace jquery.mobile.mvc.Core
 	{
 		private String _innerHtml;
 
-		public Widget(string tag)
+		public Widget(String tag)
 			: base(tag)
 		{
 			_innerHtml = "";
 		}
 
-		public Widget(string tag, string innerTag)
+		public Widget(String tag, String innerTag)
 			: base(tag, innerTag)
 		{
 			_innerHtml = "";
@@ -47,7 +47,7 @@ namespace jquery.mobile.mvc.Core
 			return (T)this;
 		}
 
-		public T Data(string key, string val)
+		public T Data(String key, String val)
 		{
 			EnforceHtmlAttribute(String.Format("data-{0}", key), val);
 
@@ -71,7 +71,7 @@ namespace jquery.mobile.mvc.Core
 			return Data("role", role);
 		}
 
-		public T Mini(bool on)
+		public T Mini(Boolean on)
 		{
 			return Data("mini", on ? "true" : "false");
 		}
@@ -81,7 +81,7 @@ namespace jquery.mobile.mvc.Core
 			return Role("none");
 		}
 
-		public T Disable(bool disable)
+		public T Disable(Boolean disable)
 		{
 			if (disable)
 			{
@@ -95,7 +95,7 @@ namespace jquery.mobile.mvc.Core
 			return (T)this;
 		}
 
-		public T Corners(bool on)
+		public T Corners(Boolean on)
 		{
 			return on ? AddClass("ui-corner-all") : RemoveClass("ui-corner-all");
 		}
@@ -127,7 +127,7 @@ namespace jquery.mobile.mvc.Core
 			return (T)this;
 		}
 
-		public T Shadow(bool on)
+		public T Shadow(Boolean on)
 		{
 			return on ? AddClass("ui-shadow") : RemoveClass("ui-shadow");
 		}
@@ -144,14 +144,14 @@ namespace jquery.mobile.mvc.Core
 			return (T)this;
 		}
 
-		public T InnerHtml(string innerHtml)
+		public T InnerHtml(String innerHtml)
 		{
 			_innerHtml = innerHtml;
 
 			return (T)this;
 		}
 
-		public string ToHtmlString()
+		public virtual String ToHtmlString()
 		{
 			return StartTag + _innerHtml + EndTag;
 		}

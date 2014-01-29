@@ -114,5 +114,17 @@ namespace jquery.mobile.mvc.Core
 			return new NavbarBuilder<TModel>(Html, new Navbar());
 		}
 		/*END NAVBAR*/
+
+		/*BEGIN SELECTMENU*/
+		public SelectMenuBuilder<TModel> Begin(SelectMenu selectMenu)
+		{
+			return new SelectMenuBuilder<TModel>(Html, selectMenu);
+		}
+
+		public SelectMenuBuilder<TModel> BeginSelectMenu()
+		{
+			return new SelectMenuBuilder<TModel>(Html, new SelectMenu());
+		}
+		/*END SELECTMENU*/
 	}
 }

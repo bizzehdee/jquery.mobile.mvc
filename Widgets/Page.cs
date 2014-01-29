@@ -42,7 +42,7 @@ namespace jquery.mobile.mvc.Widgets
 		public Page(String id, IDictionary<String, String> attributes)
 			: base("div")
 		{
-			foreach (KeyValuePair<string, string> attribute in attributes)
+			foreach (KeyValuePair<String, String> attribute in attributes)
 			{
 				EnforceHtmlAttribute(attribute.Key, attribute.Value);
 			}

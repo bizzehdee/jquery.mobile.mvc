@@ -56,7 +56,7 @@ namespace jquery.mobile.mvc.Widgets
 			return this;
 		}
 
-		public Slider Highlight(bool on)
+		public Slider Highlight(Boolean on)
 		{
 			return Data("highlight", on ? "true" : "false");
 		}

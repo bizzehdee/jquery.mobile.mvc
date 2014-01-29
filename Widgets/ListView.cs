@@ -18,29 +18,31 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
 */
+
+using System;
 using jquery.mobile.mvc.Core;
 
 namespace jquery.mobile.mvc.Widgets
 {
 	public partial class ListView : Widget<ListView>
 	{
-		public ListView(bool ordered = false)
+		public ListView(Boolean ordered = false)
 			: base(ordered ? "ol" : "ul")
 		{
 			Role("listview");
 		}
 
-		public ListView Filter(bool on)
+		public ListView Filter(Boolean on)
 		{
 			return Data("filter", on ? "true" : "false");
 		}
 
-		public ListView Autodividers(bool on)
+		public ListView Autodividers(Boolean on)
 		{
 			return Data("autodividers", on ? "true" : "false");
 		}
 
-		public ListView Inset(bool on)
+		public ListView Inset(Boolean on)
 		{
 			return Data("inset", on ? "true" : "false");
 		}
