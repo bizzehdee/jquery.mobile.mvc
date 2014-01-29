@@ -50,5 +50,11 @@ namespace jquery.mobile.mvc.Widgets
 
 			return this;
 		}
+
+		public FlipSwitch Name(String name)
+		{
+			EnforceHtmlAttribute("name", name);
+			return this;
+		}
 	}
 }

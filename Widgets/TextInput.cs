@@ -73,5 +73,11 @@ namespace jquery.mobile.mvc.Widgets
 			EnforceHtmlAttribute("value", value);
 			return this;
 		}
+
+		public TextInput Name(String name)
+		{
+			EnforceHtmlAttribute("name", name);
+			return this;
+		}
 	}
 }
