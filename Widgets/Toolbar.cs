@@ -20,17 +20,38 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
 using System;
+using System.ComponentModel;
 using jquery.mobile.mvc.Core;
 
 namespace jquery.mobile.mvc.Widgets
 {
 	public class Toolbar : Widget<Toolbar>
 	{
+		public enum ToolbarType
+		{
+			[Description("header")] Header,
+			[Description("footer")] Footer
+		}
 		public Toolbar() 
 			: base("div")
 		{
-
+			Role(Misc.GetEnumDescription(ToolbarType.Header));
 		}
+ 
+		public Toolbar(ToolbarType type)
+			: base("div")
+		{
+			switch (type)
+			{
+				case ToolbarType.Header:
+					InnerTag = "h1";
+					break;
+				case ToolbarType.Footer:
+					InnerTag = "h4";
+					break;
+			}
+			Role(Misc.GetEnumDescription(type));
+ 		}
 
 		public Toolbar Fixed(Boolean on)
 		{
