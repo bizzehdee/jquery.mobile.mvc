@@ -24,9 +24,9 @@ using jquery.mobile.mvc.Widgets;
 
 namespace jquery.mobile.mvc.Builders
 {
-	public class GridBlockBuilder<TModel> : Builder<TModel, GridBlock>
+	public class GridBlockBuilder<TModel> : Builder<TModel, Grid.Block>
 	{
-		public GridBlockBuilder(HtmlHelper<TModel> htmlHelper, GridBlock element) 
+		public GridBlockBuilder(HtmlHelper<TModel> htmlHelper, Grid.Block element) 
 			: base(htmlHelper, element)
 		{
 

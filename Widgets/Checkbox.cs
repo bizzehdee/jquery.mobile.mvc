@@ -34,8 +34,7 @@ namespace jquery.mobile.mvc.Widgets
 
 		public Checkbox Checked(Boolean on)
 		{
-			if (on) EnforceHtmlAttribute("checked", "checked");
-			else EnforceHtmlAttributeRemoval("checked");
+			on.If(() => EnforceHtmlAttribute("checked", "checked"), () => EnforceHtmlAttributeRemoval("checked"));
 
 			return this;
 		}

@@ -33,14 +33,14 @@ namespace jquery.mobile.mvc.Builders
 
 		}
 
-		public GridBlockBuilder<TModel> Begin(GridBlock block)
+		public GridBlockBuilder<TModel> Begin(Grid.Block block)
 		{
 			return new GridBlockBuilder<TModel>(HtmlHelper, block);
 		}
 
 		public GridBlockBuilder<TModel> BeginBlock(Char blockType)
 		{
-			return new GridBlockBuilder<TModel>(HtmlHelper, new GridBlock(blockType));
+			return new GridBlockBuilder<TModel>(HtmlHelper, new Grid.Block(blockType));
 		}
 	}
 }

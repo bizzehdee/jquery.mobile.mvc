@@ -24,7 +24,7 @@ using jquery.mobile.mvc.Core;
 
 namespace jquery.mobile.mvc.Widgets
 {
-	public class Grid : Widget<Grid>
+	public partial class Grid : Widget<Grid>
 	{
 		public Grid(Char gridType) 
 			: base("div")

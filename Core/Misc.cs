@@ -34,5 +34,39 @@ namespace jquery.mobile.mvc.Core
 
 			return attributes.Length > 0 ? attributes[0].Description : i.ToString();
 		}
+
+		internal static Boolean True(this Boolean s, Action action)
+		{
+			if (s)
+			{
+				if(action != null) action();
+			}
+
+			return s;
+		}
+
+		internal static Boolean False(this Boolean s, Action action)
+		{
+			if (!s)
+			{
+				if (action != null) action();
+			}
+
+			return s;
+		}
+
+		internal static Boolean If(this Boolean s, Action ifTrue, Action ifFalse)
+		{
+			if (s)
+			{
+				if (ifTrue != null) ifTrue();
+			}
+			else
+			{
+				if (ifFalse != null) ifFalse();
+			}
+
+			return s;
+		}
 	}
 }

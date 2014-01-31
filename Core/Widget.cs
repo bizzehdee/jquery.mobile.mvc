@@ -29,6 +29,15 @@ namespace jquery.mobile.mvc.Core
 	{
 		private String _innerHtml;
 
+		private const String ClassShaddow = "ui-shadow";
+		private const String ClassCorner = "ui-corner-all";
+		private const String ClassBtnIconLeft = "ui-btn-icon-left";
+		private const String ClassBtnIconRight = "ui-btn-icon-right";
+		private const String ClassBtnIconTop = "ui-btn-icon-top";
+		private const String ClassBtnIconBottom = "ui-btn-icon-bottom";
+		private const String ClassBtnIconNoText = "ui-btn-icon-notext";
+		private const String ClassIconPrefix = "ui-icon-";
+
 		public Widget(String tag)
 			: base(tag)
 		{
@@ -73,7 +82,9 @@ namespace jquery.mobile.mvc.Core
 
 		public T Mini(Boolean on)
 		{
-			return Data("mini", on ? "true" : "false");
+			on.If(() => Data("mini", "true"), () => Data("mini", "false"));
+
+			return (T)this;
 		}
 
 		public T Native()
@@ -83,44 +94,41 @@ namespace jquery.mobile.mvc.Core
 
 		public T Disable(Boolean disable)
 		{
-			if (disable)
-			{
-				EnforceHtmlAttribute("disabled", "disabled");
-			}
-			else
-			{
-				EnforceHtmlAttributeRemoval("disabled");
-			}
+			disable.If(() => EnforceHtmlAttribute("disabled", "disabled"), () => EnforceHtmlAttributeRemoval("disabled"));
 
 			return (T)this;
 		}
 
 		public T Corners(Boolean on)
 		{
-			return on ? AddClass("ui-corner-all") : RemoveClass("ui-corner-all");
+			on.If(() => AddClass(ClassCorner), () => RemoveClass(ClassCorner));
+
+			return (T)this;
 		}
+
+
 
 		public T Icon(Icon.IconType icon, Icon.IconPosition position)
 		{
 			Data("icon", Misc.GetEnumDescription(icon));
-			AddClass(String.Format("ui-icon-{0}", Misc.GetEnumDescription(icon)));
+			AddClass(String.Format("{0}{1}", ClassIconPrefix, Misc.GetEnumDescription(icon)));
 
 			switch (position)
 			{
 				case Core.Icon.IconPosition.Left:
-					AddClass("ui-btn-icon-left");
+					AddClass(ClassBtnIconLeft);
 					break;
 				case Core.Icon.IconPosition.Right:
-					AddClass("ui-btn-icon-right");
+					AddClass(ClassBtnIconRight);
 					break;
 				case Core.Icon.IconPosition.Top:
-					AddClass("ui-btn-icon-top");
+					AddClass(ClassBtnIconTop);
 					break;
 				case Core.Icon.IconPosition.Bottom:
-					AddClass("ui-btn-icon-bottom");
+					AddClass(ClassBtnIconBottom);
 					break;
 				case Core.Icon.IconPosition.NoText:
-					AddClass("ui-btn-icon-notext");
+					AddClass(ClassBtnIconNoText);
 					break;
 			}
 
@@ -129,7 +137,9 @@ namespace jquery.mobile.mvc.Core
 
 		public T Shadow(Boolean on)
 		{
-			return on ? AddClass("ui-shadow") : RemoveClass("ui-shadow");
+			on.If(() => AddClass(ClassShaddow), () => RemoveClass(ClassShaddow));
+
+			return (T)this;
 		}
 
 		public T AddClass(String className)
@@ -153,7 +163,7 @@ namespace jquery.mobile.mvc.Core
 
 		public virtual String ToHtmlString()
 		{
-			return StartTag + _innerHtml + EndTag;
+			return String.Format("{0}{1}{2}", StartTag, _innerHtml, EndTag);
 		}
 	}
 }

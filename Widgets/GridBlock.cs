@@ -24,12 +24,15 @@ using jquery.mobile.mvc.Core;
 
 namespace jquery.mobile.mvc.Widgets
 {
-	public class GridBlock : Widget<GridBlock>
+	public partial class Grid
 	{
-		public GridBlock(Char blockType) 
-			: base("div")
+		public class Block : Widget<Block>
 		{
-			EnforceClass(String.Format("ui-block-{0}", blockType));
+			public Block(Char blockType)
+				: base("div")
+			{
+				EnforceClass(String.Format("ui-block-{0}", blockType));
+			}
 		}
 	}
 }
