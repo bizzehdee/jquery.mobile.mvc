@@ -45,6 +45,7 @@
     <Compile Include="Builders\ButtonBuilder.cs" />
     <Compile Include="Builders\ContentBuilder.cs" />
     <Compile Include="Builders\ControlGroupBuilder.cs" />
+    <Compile Include="Builders\FieldContainerBuilder.cs" />
     <Compile Include="Builders\FormBuilder.cs" />
     <Compile Include="Builders\GridBlockBuilder.cs" />
     <Compile Include="Builders\GridBuilder.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Widgets\Content.cs" />
     <Compile Include="Widgets\ControlGroup.cs" />
     <Compile Include="Widgets\DatePicker.cs" />
+    <Compile Include="Widgets\FieldContainer.cs" />
     <Compile Include="Widgets\FlipSwitch.cs" />
     <Compile Include="Widgets\Form.cs" />
     <Compile Include="Widgets\Grid.cs" />
