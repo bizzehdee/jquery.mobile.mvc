@@ -45,7 +45,7 @@ namespace jquery.mobile.mvc.Widgets
 					break;
 				case ContentType.Content:
 					EnforceHtmlAttribute("role", "main");
-					EnforceClass("ui-content");
+					EnforceClass("ui-content ui-body");
 					break;
 				case ContentType.Footer:
 					EnforceHtmlAttribute("data-role", "footer");
