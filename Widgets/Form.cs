@@ -19,6 +19,7 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
 */
 using System;
+using System.ComponentModel;
 using jquery.mobile.mvc.Core;
 
 namespace jquery.mobile.mvc.Widgets
@@ -29,6 +30,13 @@ namespace jquery.mobile.mvc.Widgets
 		{
 			Get,
 			Post
+		}
+
+		public enum FormEncoding
+		{
+			[Description("text/plain")] Plain,
+			[Description("multipart/form-data")] Multipart,
+			[Description("application/x-www-form-urlencoded")] UrlEncoded
 		}
 
 		public Form()
@@ -55,6 +63,20 @@ namespace jquery.mobile.mvc.Widgets
 					EnforceHtmlAttribute("method", "post");
 					break;
 			}
+
+			return this;
+		}
+
+		public Form Encoding(FormEncoding encoding)
+		{
+			EnforceHtmlAttribute("enctype", Misc.GetEnumDescription(encoding));
+
+			return this;
+		}
+
+		public Form Ajax(Boolean on)
+		{
+			on.If(() => Data("ajax", "true"), () => Data("ajax", "false"));
 
 			return this;
 		}
