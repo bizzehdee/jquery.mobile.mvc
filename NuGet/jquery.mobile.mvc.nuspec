@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>jquery.mobile.mvc</id>
-    <version>0.1.0</version>
+    <id>jquery.mobile.mvc.dll</id>
+    <version>0.1.1</version>
     <authors>Darren Horrocks</authors>
     <owners>Darren Horrocks</owners>
     <licenseUrl>https://github.com/bizzehdee/jquery.mobile.mvc/blob/master/LICENSE</licenseUrl>
