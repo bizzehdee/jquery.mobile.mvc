@@ -84,6 +84,7 @@
     <Compile Include="Widgets\Grid.cs" />
     <Compile Include="Widgets\GridBlock.cs" />
     <Compile Include="Core\Icon.cs" />
+    <Compile Include="Widgets\HtmlElement.cs" />
     <Compile Include="Widgets\ListView.cs" />
     <Compile Include="Widgets\ListView.Item.cs" />
     <Compile Include="Widgets\Navbar.cs" />
